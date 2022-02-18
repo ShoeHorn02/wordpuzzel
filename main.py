@@ -10,7 +10,7 @@
 #- don't reverse the characters in each word
 
 #Sample string:
-x="the brown fox jumped over the fence\nthe brown bear fell down the hill\n\bThe big lion chased the deer\nThe monkey ate the bananas\n\b"
+input_book ="the brown fox jumped over the fence\nthe brown bear fell down the hill\n\bThe big lion chased the deer\nThe monkey ate the bananas\n\b"
 
 
 #Use: https://www.online-python.com
@@ -20,23 +20,14 @@ def removewhitespace(x):
         x.remove("")
     return x
 
-def addtosgring(x,a):
-    d = []
-    for i in x:
-        i = str(i)+a
-    return d.append(i)
-
-
 def test(x):
-    a = x.split('\b') #["the brown fox jumped over the fence\nthe brown bear fell down the hill\n","The big lion chased the deer\nThe monkey ate the bananas\n"]
-    a = list(reversed(a)) #["The big lion chased the deer\nThe monkey ate the bananas\n", "the brown fox jumped over the fence\nthe brown bear fell down the hill\n"]
-    y = removewhitespace(a)
+    reversepage = list(reversed(x.split('\b') ))
     d = []
-    for x in a:
-        y = list(reversed(x.split('\n')))
-        y = removewhitespace(y)
-        for z in y:
+    for x in reversepage:
+        reversesentence = list(reversed(x.split('\n')))
+        reversesentence = removewhitespace(reversesentence)
+        for z in reversesentence:
             d.append(list(reversed(z.split(' '))))
     return ", ".join([" ".join(s) for s in d])
 
-print(test(x))
+print(test(input_book))
