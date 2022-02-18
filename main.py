@@ -20,7 +20,7 @@ def removewhitespace(x):
         x.remove("")
     return x
 
-def test(x):
+def bookreverse(x):
     reversepage = list(reversed(x.split('\b') ))
     d = []
     for x in reversepage:
@@ -30,4 +30,4 @@ def test(x):
             d.append(list(reversed(z.split(' '))))
     return ", ".join([" ".join(s) for s in d])
 
-print(test(input_book))
+print(bookreverse(input_book))
